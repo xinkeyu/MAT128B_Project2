@@ -2,23 +2,24 @@ function [weights,outs] = training (numOfLayers,neuronsPerLayer)
 %INPUT:
 %numOfLayers = number of layers (including input and output layers)
 %neuronsPerLayer = vector specifies the number of neurons in each layer
-%-note: input layer has 784 neurons, output layer has 10 neurons
-%       so will always be in the form [784 .. .. .. 10] 
+%-note: input layer has 784 neurons
+%       so will always be in the form [784 .. .. ..] 
 
 
 %Preparation before training
 %weights is a collection of weight matrices 
 weights = cell(numOfLayers-1,1);
 
-%TODO IN PART 5: assign a random number to each weight 
+
 for i = 1:numOfLayers-1
-    weights{i} = zeros(neuronsPerLayer(i),neuronsPerLayer(i+1));
+    weights{i} = randn(neuronsPerLayer(i),neuronsPerLayer(i+1));
 end
 
 
 %the target matrix is the identity matrix
 %for digit i-1, target(i,i) = 1 while the other columns in row i are 0
-target = eye(10);
+%target = eye(10);
+target = [0,1,2,3,4,5,6,7,8,9];
 
 %outs contains the OUT values for all layers except the input layer
 outs = cell(numOfLayers-1,1);
