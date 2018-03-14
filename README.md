@@ -8,10 +8,22 @@ Part4-6: training.m & routine.m for training;
 
 ## Contribution
 
-Xinke Yu:
+Xinke Yu:		readDigit.m
+			averageDigit.m
+			displayDigit.m
+			routine.m
+			testing.m
+			run_test.m
+			
+			section iii: analysis
+			section iv: introduction
+			
+			
 
 Xuanchen Yu: training.m,
 			double_layer.m
 			recog.m
+			routine.m
+			
 			section v: proof
 			section vii: analysis
