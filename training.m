@@ -1,6 +1,6 @@
 function [weights,outs] = training (numOfLayers,neuronsPerLayer,input,weights,target,rate)
 %INPUT:
-%numOfLayers = number of layers (including and output layers)
+%numOfLayers = number of layers (including output layers)
 %neuronsPerLayer = vector specifies the number of neurons in each layer
 %-note: input layer has 784 neurons
 %       so will always be in the form [784 .. .. .. 1] 
@@ -52,6 +52,8 @@ for j = numOfLayers-1:2
     D_weights{j} = rate* outs{j-1}'*deltas{j}; 
     weights{j} = weights{j} + D_weights{j};
 end
+
+%first hidden layer need to use input
 deltas{1} = deltas{2}*weights(2)' .* dF(outs{1});
 D_weights{1} = rate* input'*deltas{1}; 
 weights{1} = weights{1} + D_weights{1};
