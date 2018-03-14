@@ -32,11 +32,11 @@ end
 nets{1} = NET(input,weights{1});
 outs{1} = F(nets{1});
 for i = 2:numOfLayers
-    nets{i} = NET(outs{i-1},weights{i-1});
+    nets{i} = NET(outs{i-1},weights{i});
     outs{i} = F(nets{i});
 end
 
-result = outs{numOfpalyers}; %final result
+result = outs{numOfLayers}; %final result
 err =  abs(target - result);
 output_layer = numOfLayers;
 
@@ -48,13 +48,13 @@ weights{output_layer} = weights{output_layer} + D_weights{output_layer};
 
 %hidden layers
 for j = numOfLayers-1:2
-    deltas{j} = deltas{j+1}*weights(j+1)' .* dF(outs{j});
+    deltas{j} = deltas{j+1}*weights{j+1}' .* double(dF(outs{j}));
     D_weights{j} = rate* outs{j-1}'*deltas{j}; 
     weights{j} = weights{j} + D_weights{j};
 end
 
 %first hidden layer need to use input
-deltas{1} = deltas{2}*weights(2)' .* dF(outs{1});
+deltas{1} = deltas{2}*weights{2}' .* dF(outs{1});
 D_weights{1} = rate* input'*deltas{1}; 
 weights{1} = weights{1} + D_weights{1};
 
