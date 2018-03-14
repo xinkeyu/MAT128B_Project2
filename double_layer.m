@@ -25,7 +25,7 @@ outs{1} = F(nets{1});
 
 nets{2} = outs{1}*weights{2};
 outs{2} = F(nets{2});
-result = outs{2}
+result = outs{2};
 
 err =  abs(target - result);
 

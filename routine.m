@@ -51,3 +51,4 @@ for num = 1:size(train9,1)
     [weights,outs8]=training(numOfLayers-1,neuronsPerLayer,double(train9(num,:)),weights,0.9,rate);
 end
 
+printf("trainning completed, start testing.")
