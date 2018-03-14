@@ -31,13 +31,13 @@ err =  abs(target - result);
 
 
 deltas{2} =(outs{2}*(1-outs{2}))*err; % output layer delta
-D_weights{2} = rate* outs{1}'*deltas{2}; 
+D_weights{2} = rate * outs{1}'*deltas{2}; 
 weights{2} = weights{2} + D_weights{2};
 
 %hidden layers
 
-deltas{1} = deltas{2}*weights{2}' .* (outs{1}.*(ones(1,500)-outs{1}));
-D_weights{1} = rate* input'*deltas{1}; 
+deltas{1} = deltas{2}*weights{2}' .* (outs{1}.*(1-outs{1}));
+D_weights{1} = rate * input'*deltas{1}; 
 weights{1} = weights{1} + D_weights{1};
 
 end

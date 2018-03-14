@@ -1,5 +1,5 @@
 %routine
-neuronsPerLayer = [784 500 1];
+neuronsPerLayer = [784 100 1];
 weights = cell(2,1);
 
 %Preparation before training
@@ -11,5 +11,5 @@ end
 
 for i = 1:1000
     input = double(train3(i,:));
-    [weights, o,res] = double_layer (neuronsPerLayer,input,weights,3,0.01); 
+    [weights, o, res] = double_layer(neuronsPerLayer,input,weights, 3 ,0.05); 
 end
