@@ -10,7 +10,7 @@ tests{8} = test7;
 tests{9} = test8;
 tests{10} = test9;
 
-numTests = 100;
+numTests = 1000;
 count = 0;
 for i = 1:10
     for num = 1:numTests
